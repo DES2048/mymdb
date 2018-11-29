@@ -20,7 +20,8 @@ class Movie(models.Model):
     # поля
     # название фильма
     title = models.CharField(max_length=200)
-    plot = models.TextField()
+    # описание фильма
+    plot = models.TextField(blank = True)
     
     # год выпуска фильма
     year = models.PositiveIntegerField()
@@ -28,8 +29,9 @@ class Movie(models.Model):
     # передаем параметр choice, чтобы ограничить список возм. значенийы
     rating = models.IntegerField(choices = RATINGS, default = NOT_RATED)
     
+    # длительность в минутах
     runtime =  models.PositiveIntegerField()
     website = models.URLField(blank = True)
     
-    def __str__():
+    def __str__(self):
         return "{} ({})".format(self.title, self.year)
