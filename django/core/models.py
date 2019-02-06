@@ -32,6 +32,9 @@ class Movie(models.Model):
     # длительность в минутах
     runtime = models.PositiveIntegerField()
     website = models.URLField(blank=True)
-    
+
+    class Meta:
+        ordering = ("-year", "title")  # adding base ordering
+
     def __str__(self):
         return "{} ({})".format(self.title, self.year)
