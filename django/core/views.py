@@ -8,6 +8,7 @@ from core.models import Movie
 class MoviesList(ListView):
     # этот атрибут класса говорит данные какой модкли мы будем использовать для списка
     model = Movie
+    paginate_by = 10
 
 
 class MovieDetail(DetailView):
