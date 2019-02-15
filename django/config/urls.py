@@ -17,11 +17,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 import core.urls
+from config.settings import DEBUG
 
 handler_404 = "404.html"  # register a custom 404 page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(core.urls, namespace="core")),
-    path("", RedirectView.as_view(pattern_name="core:MoviesList"))
+    path("", RedirectView.as_view(pattern_name="core:MoviesList")),
+
 ]
+
+if DEBUG:
+    import debug_toolbar
+
+    urlpatterns.append(
+        path("_debug/", include(debug_toolbar.urls))
+    )
+
