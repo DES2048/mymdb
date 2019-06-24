@@ -20,7 +20,16 @@
         <nav class="nav">
           <div class="navbar-brand">MyMDB</div>
           <a class="nav-link" href="{% url 'core:MoviesList' %}">Movies</a>
-          
+          <div class="navitem dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Personas
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Actors</a>
+              <a class="dropdown-item" href="#">Directors</a>
+            s</div>
+          </div>
+
         </nav>
       </div>
     </div>
