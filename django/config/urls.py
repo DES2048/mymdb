@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 import core.urls
+import user.urls
 from config.settings import DEBUG
 
 handler_404 = "404.html"  # register a custom 404 page
@@ -24,6 +25,7 @@ handler_404 = "404.html"  # register a custom 404 page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(core.urls, namespace="core")),
+    path('user/', include(user.urls, namespace='user')),
     path("", RedirectView.as_view(pattern_name="core:MoviesList")),
 
 ]
